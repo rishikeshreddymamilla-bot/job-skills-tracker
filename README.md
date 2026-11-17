@@ -1,6 +1,6 @@
 # Data Analyst & BI Skills Tracker
 
-**Live dashboard:** [FILL IN: your Streamlit URL]
+**Live dashboard:** (https://rishikesh-job-skills.streamlit.app/)
 
 **The question:** Which skills and tools do US data analyst and BI job postings actually ask for, and how does that change with salary and location?
 
