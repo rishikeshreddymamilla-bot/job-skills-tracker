@@ -317,7 +317,7 @@ with tab_method:
 - **Descriptions are truncated.** Adzuna provides only the first 500 characters, so skills listed further down
   a posting are missed. Counts are lower bounds; the ranking between skills is more reliable than the percentages.
 - **Search-term bias.** "Power BI developer" is one of the search terms, so Power BI appears in many titles by
-  design. Use *Count description mentions only* to reduce this.
+  design. Most Power BI postings mention it in the description too, so the description-only filter only partly reduces this.
 - **Keyword matching makes mistakes.** "Excel" as a verb ("excel in a fast-paced team") can count as the Excel skill;
   "Spark" is only matched as PySpark or Apache Spark to avoid the verb, so some Spark jobs are missed.
 - **Salaries.** Adzuna estimates salaries for postings that don't list one; those estimates are excluded here.
