@@ -1,0 +1,33 @@
+name: Daily job refresh
+
+on:
+  schedule:
+    - cron: "0 11 * * *"   # every day at 11:00 UTC (6 AM Eastern in winter, 7 AM in summer)
+  workflow_dispatch:        # adds a "Run workflow" button so you can trigger it by hand
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install only what the pipeline needs
+        run: pip install requests python-dotenv psycopg2-binary
+
+      - name: Fetch new postings, load them, extract skills
+        env:
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          python create_tables.py
+          python fetch_jobs.py
+          python load_jobs.py
+          python extract_skills.py
