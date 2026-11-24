@@ -72,7 +72,7 @@ def load_data():
 
 try:
     jobs, matches = load_data()
-except Exception as e:
+except (Exception, SystemExit) as e:
     st.error(f"Couldn't load data from the database: {e}")
     st.stop()
 
@@ -144,8 +144,8 @@ c3.metric("Median posted salary", "n/a" if pd.isna(median_pay) else f"${median_p
 c4.metric("Days of data", days_collected)
 
 
-tab_skills, tab_pay, tab_pairs, tab_where, tab_jobs, tab_method = st.tabs(
-    ["Skills demand", "Pay by skill", "Skills together", "Where & when", "Postings", "Method & limitations"]
+tab_skills, tab_pay, tab_pairs, tab_where, tab_jobs, tab_eval, tab_method = st.tabs(
+    ["Skills demand", "Pay by skill", "Skills together", "Where & when", "Postings", "Regex vs LLM", "Method & limitations"]
 )
 
 
@@ -299,6 +299,68 @@ with tab_jobs:
         },
     )
     st.caption(f"{len(table):,} postings. Job listings provided by [Adzuna](https://www.adzuna.com).")
+
+
+# ---------- Regex vs LLM ----------
+
+with tab_eval:
+    summary_path, per_skill_path = "eval/results_summary.csv", "eval/per_skill.csv"
+    if not os.path.exists(summary_path):
+        st.info("The regex-vs-LLM evaluation hasn't been run yet.")
+    else:
+        summary = pd.read_csv(summary_path)
+        st.markdown(
+            "Does an LLM find skills in job postings better than keyword (regex) matching? Both methods read the "
+            f"same **{int(summary['postings'].iloc[0])} postings**, and I labeled the skills in each one by hand to "
+            "create the answer key. **Precision** = of the skills a method found, the share that were really there. "
+            "**Recall** = of the skills really there, the share it found. **F1** combines the two."
+        )
+
+        cols = st.columns(len(summary))
+        for col, (_, row) in zip(cols, summary.iterrows()):
+            cost = row["cost_per_1000_postings_usd"]
+            col.metric(f"{row['method']} F1", f"{row['f1']:.2f}",
+                       help=f"Precision {row['precision']:.2f}, recall {row['recall']:.2f}. "
+                            f"Cost per 1,000 postings: ${cost:,.2f}.")
+
+        long = summary.melt(id_vars="method", value_vars=["precision", "recall", "f1"],
+                            var_name="measure", value_name="score")
+        long["measure"] = long["measure"].map({"precision": "Precision", "recall": "Recall", "f1": "F1"})
+        st.altair_chart(
+            alt.Chart(long).mark_bar().encode(
+                x=alt.X("measure:N", title=None, sort=["Precision", "Recall", "F1"], axis=alt.Axis(labelAngle=0)),
+                xOffset=alt.XOffset("method:N"),
+                y=alt.Y("score:Q", title="Score (0 to 1)", scale=alt.Scale(domain=[0, 1])),
+                color=alt.Color("method:N", title="Method"),
+                tooltip=["method", "measure", alt.Tooltip("score:Q", format=".2f")],
+            ).properties(height=320),
+            width="stretch",
+        )
+
+        st.dataframe(
+            summary.rename(columns={
+                "method": "Method", "precision": "Precision", "recall": "Recall", "f1": "F1",
+                "false_positives": "False positives", "missed": "Missed",
+                "seconds_per_posting": "Seconds per posting", "cost_per_1000_postings_usd": "Cost per 1,000 postings ($)",
+            })[["Method", "Precision", "Recall", "F1", "False positives", "Missed",
+                "Seconds per posting", "Cost per 1,000 postings ($)"]],
+            hide_index=True,
+        )
+
+        if os.path.exists(per_skill_path):
+            per_skill = pd.read_csv(per_skill_path)
+            per_skill = per_skill[per_skill["labeled_postings"] >= 5]
+            f1_cols = [c for c in per_skill.columns if c.endswith(" F1")]
+            st.subheader("By skill")
+            st.dataframe(per_skill[["skill", "labeled_postings"] + f1_cols]
+                         .rename(columns={"skill": "Skill", "labeled_postings": "Postings with this skill"}),
+                         hide_index=True)
+
+        st.caption(
+            "Small test set: differences of a few points can be chance, and skills with fewer than 5 labeled postings "
+            "are hidden. Cost uses the model's standard paid-tier price (the test itself ran on the free tier). "
+            "Both methods only see the first 500 characters of each description, like the rest of this dashboard."
+        )
 
 
 # ---------- Method & limitations ----------

@@ -1,0 +1,22 @@
+method,job_id,skill,error
+Regex,5968422983,Statistics,missed
+Regex,5967726655,ETL,missed
+Regex,5967726655,Data Visualization,missed
+Regex,5948759540,Data Visualization,missed
+Regex,5931394333,ETL,missed
+Regex,5931394333,Statistics,false positive
+LLM (gemini-3.5-flash-lite),5956097558,Tableau,false positive
+LLM (gemini-3.5-flash-lite),5956097558,Snowflake,missed
+LLM (gemini-3.5-flash-lite),5950948642,Data Visualization,missed
+LLM (gemini-3.5-flash-lite),5890342069,Data Visualization,false positive
+LLM (gemini-3.5-flash-lite),5968422983,Data Visualization,missed
+LLM (gemini-3.5-flash-lite),5952096310,Data Visualization,missed
+LLM (gemini-3.5-flash-lite),5967726655,Data Visualization,missed
+LLM (gemini-3.5-flash-lite),5969414260,Python,false positive
+LLM (gemini-3.5-flash-lite),5969414260,Spark,missed
+LLM (gemini-3.5-flash-lite),5969663732,Data Visualization,false positive
+LLM (gemini-3.5-flash-lite),5959683397,Python,missed
+LLM (gemini-3.5-flash-lite),5953390680,Data Visualization,false positive
+LLM (gemini-3.5-flash-lite),5961223038,Data Visualization,false positive
+LLM (gemini-3.5-flash-lite),5955317356,Statistics,missed
+LLM (gemini-3.5-flash-lite),5931394333,ETL,missed

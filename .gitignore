@@ -2,3 +2,8 @@ venv/
 .env
 raw/
 __pycache__/
+eval/label_sheet.xlsx
+eval/errors_review.xlsx
+eval/review_list.xlsx
+eval/review_list.xlsx
+eval/*.xlsx

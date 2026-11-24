@@ -1,0 +1,51 @@
+job_id,model,llm_skills,input_tokens,output_tokens,seconds
+5956097558,gemini-3.5-flash-lite,Data Visualization;Power BI;SQL;Tableau,329,18,9.88
+5918943161,gemini-3.5-flash-lite,,350,9,9.24
+5930647044,gemini-3.5-flash-lite,Data Visualization,327,18,0.67
+5929056823,gemini-3.5-flash-lite,Data Visualization,348,18,9.63
+5918849110,gemini-3.5-flash-lite,,350,5,10.06
+5974105072,gemini-3.5-flash-lite,,349,9,0.62
+5918825689,gemini-3.5-flash-lite,,347,9,9.22
+5950948642,gemini-3.5-flash-lite,,320,9,0.77
+5890342069,gemini-3.5-flash-lite,Data Visualization,327,18,39.5
+5957093752,gemini-3.5-flash-lite,Power BI,335,18,0.85
+5968422983,gemini-3.5-flash-lite,Power BI;Python;SQL;Statistics;Tableau,354,39,0.59
+5952096310,gemini-3.5-flash-lite,,328,5,0.81
+5967726655,gemini-3.5-flash-lite,Azure;ETL;Power BI,337,29,0.78
+5969414260,gemini-3.5-flash-lite,Power BI;Python;SQL,339,15,0.76
+5969663732,gemini-3.5-flash-lite,Data Visualization;Power BI,337,24,8.16
+5959683397,gemini-3.5-flash-lite,SQL,353,6,37.32
+5936358751,gemini-3.5-flash-lite,Data Visualization;Power BI,355,11,4.49
+5968342073,gemini-3.5-flash-lite,,338,9,3.32
+5972180879,gemini-3.5-flash-lite,,332,5,0.71
+5933255036,gemini-3.5-flash-lite,,321,5,0.75
+5894785535,gemini-3.5-flash-lite,,342,9,0.84
+5972458595,gemini-3.5-flash-lite,Excel;Power BI;SQL,327,28,0.79
+5855651024,gemini-3.5-flash-lite,Data Visualization;Power BI,331,24,0.72
+5912414999,gemini-3.5-flash-lite,,356,5,1.47
+5965859134,gemini-3.5-flash-lite,Data Visualization,322,18,0.52
+5953390680,gemini-3.5-flash-lite,Data Visualization;Power BI,335,24,0.88
+5969808910,gemini-3.5-flash-lite,,339,9,0.71
+5961761252,gemini-3.5-flash-lite,Data Visualization,321,18,1.29
+5948759540,gemini-3.5-flash-lite,Data Visualization;SQL;Snowflake,340,29,0.69
+5932258724,gemini-3.5-flash-lite,Power BI,340,18,2.62
+5961223038,gemini-3.5-flash-lite,Data Visualization;Power BI,336,11,0.8
+5834402912,gemini-3.5-flash-lite,,329,5,0.81
+5870468298,gemini-3.5-flash-lite,,347,9,0.72
+5968862856,gemini-3.5-flash-lite,,334,9,0.59
+5971276071,gemini-3.5-flash-lite,,349,9,0.87
+5966496143,gemini-3.5-flash-lite,,345,9,0.84
+5931988161,gemini-3.5-flash-lite,,332,9,32.64
+5955317356,gemini-3.5-flash-lite,Data Visualization,325,7,0.61
+5950537837,gemini-3.5-flash-lite,Power BI,335,18,0.59
+5964560869,gemini-3.5-flash-lite,,371,9,0.75
+5918896649,gemini-3.5-flash-lite,,350,5,32.59
+5968342201,gemini-3.5-flash-lite,Data Visualization;Power BI,324,24,5.42
+5959354286,gemini-3.5-flash-lite,Machine Learning;Python,343,10,0.6
+5959176504,gemini-3.5-flash-lite,,337,9,0.98
+5683628192,gemini-3.5-flash-lite,Power BI,344,18,33.97
+5969418013,gemini-3.5-flash-lite,Power BI,334,18,5.15
+5969344411,gemini-3.5-flash-lite,,371,9,6.77
+5972692006,gemini-3.5-flash-lite,Python,345,17,7.42
+5931394333,gemini-3.5-flash-lite,Data Visualization,349,18,5.24
+5968889249,gemini-3.5-flash-lite,,334,9,5.72

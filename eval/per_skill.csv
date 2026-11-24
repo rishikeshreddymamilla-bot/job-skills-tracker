@@ -1,0 +1,23 @@
+skill,labeled_postings,Regex F1,Regex false positives,Regex missed,LLM (gemini-3.5-flash-lite) F1,LLM (gemini-3.5-flash-lite) false positives,LLM (gemini-3.5-flash-lite) missed
+Power BI,16,1.0,0,0,1.0,0,0
+Data Visualization,15,0.929,0,2,0.733,4,4
+SQL,6,1.0,0,0,1.0,0,0
+Python,4,1.0,0,0,0.75,1,1
+Snowflake,2,1.0,0,0,0.667,0,1
+ETL,2,0.0,0,2,0.667,0,1
+Statistics,2,0.5,1,1,0.667,0,1
+Tableau,1,1.0,0,0,0.667,1,0
+Excel,1,1.0,0,0,1.0,0,0
+Spark,1,1.0,0,0,0.0,0,1
+Azure,1,1.0,0,0,1.0,0,0
+Machine Learning,1,1.0,0,0,1.0,0,0
+R,0,,0,0,,0,0
+SAS,0,,0,0,,0,0
+Looker,0,,0,0,,0,0
+SSRS,0,,0,0,,0,0
+PostgreSQL,0,,0,0,,0,0
+MySQL,0,,0,0,,0,0
+dbt,0,,0,0,,0,0
+AWS,0,,0,0,,0,0
+GCP,0,,0,0,,0,0
+A/B Testing,0,,0,0,,0,0
